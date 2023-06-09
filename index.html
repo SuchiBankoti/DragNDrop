@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
   </head>
   <body>
-    <div id="container" class="box"></div>
     <!-- This is the container that holds all the draggable elements -->
-    <div id="dropzone" class="box"></div>
+    <div id="container" class="box">
+      <div id="heart" draggable="true" ondragstart="on_dragStart(event) ">
+        <i data-feather="heart"></i>
+      </div>
+    </div>
+
     <!-- This is the container that will take all the dropoffs -->
+    <div
+      id="dropzone"
+      class="box"
+      ondrop="on_drop(event)"
+      ondragover="allow_drop(event)"
+    ></div>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
