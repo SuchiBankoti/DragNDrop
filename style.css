@@ -12,12 +12,11 @@
   column-gap: 10px;
   padding: 10px;
   background-color: black;
-  opacity: 0.8;
 }
+
 img {
   height: 65px;
   width: 65px;
-  mix-blend-mode: luminosity;
 }
 .item {
   width: 150px;
@@ -27,11 +26,41 @@ img {
   align-items: center;
   justify-content: center;
   background-color: rgb(36, 35, 35);
+  position: relative;
 }
 #dropzone {
   background-color: #b03a2e;
-  opacity: 0.8;
+  width: 650px;
+  height: 340px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 10px;
 }
 .icon {
   color: #d7dbdd;
+}
+.move {
+  bottom: -10px;
+  left: 50px;
+  background-color: white;
+}
+#msgbox {
+  position: fixed;
+  display: none;
+  top: 300px;
+  left: 200px;
+  z-index: 1;
+  width: 500px;
+  height: 200px;
+  background-color: black;
+  color: white;
+  border: 5px solid black;
+  text-align: center;
+  padding-top: 30px;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 5px;
 }
