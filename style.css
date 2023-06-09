@@ -1,5 +1,37 @@
+* {
+  box-sizing: border-box;
+}
 .box {
-  width: 500px;
-  height: 500px;
+  width: 650px;
+  height: 340px;
   border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 10px;
+  background-color: black;
+  opacity: 0.8;
+}
+img {
+  height: 65px;
+  width: 65px;
+  mix-blend-mode: luminosity;
+}
+.item {
+  width: 150px;
+  height: 100px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(36, 35, 35);
+}
+#dropzone {
+  background-color: #b03a2e;
+  opacity: 0.8;
+}
+.icon {
+  color: #d7dbdd;
 }

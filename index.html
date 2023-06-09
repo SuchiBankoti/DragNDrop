@@ -6,15 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
   </head>
   <body>
+    <h1>DragNDrop</h1>
     <!-- This is the container that holds all the draggable elements -->
     <div id="container" class="box">
-      <div id="heart" draggable="true" ondragstart="on_dragStart(event) ">
-        <i data-feather="heart"></i>
+      <div
+        id="heart"
+        draggable="true"
+        ondragstart="on_dragStart(event) "
+        class="item"
+      >
+        <i data-feather="heart" class="icon"></i>
+      </div>
+      <div
+        id="alert"
+        draggable="true"
+        ondragstart="on_dragStart(event) "
+        class="item"
+      >
+        <i data-feather="alert-triangle" class="icon"></i>
+      </div>
+      <div
+        id="bell"
+        draggable="true"
+        ondragstart="on_dragStart(event) "
+        class="item"
+      >
+        <i data-feather="bell-off" class="icon"></i>
+      </div>
+      <div
+        id="battery"
+        draggable="true"
+        ondragstart="on_dragStart(event) "
+        class="item"
+      >
+        <i data-feather="battery-charging" class="icon"></i>
       </div>
     </div>
+</div>
 
     <!-- This is the container that will take all the dropoffs -->
     <div
@@ -27,5 +57,6 @@
     <script>
       feather.replace();
     </script>
+    <script src="main.js"></script>
   </body>
 </html>
