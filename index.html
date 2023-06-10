@@ -11,47 +11,22 @@
     <h1>DragNDrop</h1>
     <div id="main">
       <!-- This is the container that holds all the draggable elements -->
-      <div id="container" class="box">
-        <div
-          id="heart"
-          draggable="true"
-          ondragstart="on_dragStart(event) "
-          class="item"
-        >
-          <i data-feather="heart" class="icon"></i>
-        </div>
-        <div
-          id="alert"
-          draggable="true"
-          ondragstart="on_dragStart(event) "
-          class="item"
-        >
-          <i data-feather="alert-triangle" class="icon"></i>
-        </div>
-        <div
-          id="bell"
-          draggable="true"
-          ondragstart="on_dragStart(event) "
-          class="item"
-        >
-          <i data-feather="bell-off" class="icon"></i>
-        </div>
-        <div
-          id="battery"
-          draggable="true"
-          ondragstart="on_dragStart(event) "
-          class="item"
-        >
-          <i data-feather="battery-charging" class="icon"></i>
-        </div>
-      </div>
+      <div id="container" class="box"></div>
 
       <!-- This is the container that will take all the dropoffs -->
-      <div
-        id="dropzone"
-        ondrop="on_drop(event)"
-        ondragover="allow_drop(event)"
-      ></div>
+      <div id="dropContainer">
+        <div
+          id="dropzone"
+          ondrop="on_drop(event)"
+          ondragover="allow_drop(event)"
+        >
+          <div id="dropIcon">
+            <i data-feather="plus" class="icon"></i>
+            <h3>Drop Files Here</h3>
+            <p>Simply drag and drop the files from left side</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
