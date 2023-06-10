@@ -44,6 +44,21 @@ const data = [
     content: "Drop",
     className: "text",
   },
+  {
+    tag: "img",
+    atNames: ["alt", "src"],
+    atValues: ["logo", "./items/i4.png"],
+  },
+  {
+    tag: "img",
+    atNames: ["alt", "src"],
+    atValues: ["logo", "./items/i5.png"],
+  },
+  {
+    tag: "img",
+    atNames: ["alt", "src"],
+    atValues: ["logo", "./items/i6.png"],
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", addItemsToContainer);
@@ -53,12 +68,16 @@ const dropContainer = document.getElementById("dropContainer");
 const dropzone = document.getElementById("dropzone");
 const body = document.querySelector("body");
 
-// create a message box to give msg after drop
+// create dialogue box to give msg after drop
 const msg = document.createElement("div");
 const p = document.createElement("p");
+const i = document.createElement("i");
+i.setAttribute("data-feather", "check");
+i.classList.add("icon");
 msg.id = "msgbox";
 p.textContent = "Item Moved Succesfully";
 msg.appendChild(p);
+msg.appendChild(i);
 body.appendChild(msg);
 
 // drag and drop functionality
