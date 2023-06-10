@@ -5,15 +5,15 @@ const dropzone = document.getElementById("dropzone");
 const body = document.querySelector("body");
 
 // create a message box to give msg after drop
-const div = document.createElement("div");
-div.id = "msgbox";
+const msg = document.createElement("div");
 const p = document.createElement("p");
+msg.id = "msgbox";
 p.textContent = "Item Moved Succesfully";
-div.appendChild(p);
-body.appendChild(div);
+msg.appendChild(p);
+body.appendChild(msg);
 
+// drag and drop functionality
 function allow_drop(e) {
-  //use prevent default to allow drop
   e.preventDefault();
 }
 function on_dragStart(e) {
@@ -31,20 +31,21 @@ function on_drag(e) {
 function on_dragEnd(e) {
   e.target.style.background = "transparent";
 }
-
 function on_drop(e) {
-  //this function takes the id of the target and append it to the dropzone
   e.preventDefault();
   removeDropIcon();
-
   let data = e.dataTransfer.getData("text");
+  const itemContainer = document.createElement("div");
+  itemContainer.className = "item-container";
   const draggedTag = document.getElementById(data);
-  e.target.appendChild(draggedTag);
+  draggedTag.style.height = "70px";
+  itemContainer.appendChild(draggedTag);
+  e.target.appendChild(itemContainer);
   addMsg();
   setTimeout(() => removeMsg(), 1000);
 }
 
-// creates  new image tags and append them to container
+//  append items to container
 function addItemsToContainer() {
   for (let i = 1; i <= 8; i++) {
     const div = document.createElement("div");
@@ -59,12 +60,11 @@ function addItemsToContainer() {
 }
 
 function addMsg() {
-  div.style.display = "block";
+  msg.style.display = "block";
   main.style.filter = "blur(5px)";
 }
 function removeMsg() {
-  const msgbox = document.getElementById("msgbox");
-  msgbox.style.display = "none";
+  msg.style.display = "none";
   main.style.filter = "blur(0)";
 }
 
@@ -73,4 +73,8 @@ function removeDropIcon() {
   if (icon) {
     dropzone.removeChild(icon);
   }
+}
+function reset() {
+  console.log("resstt");
+  location.reload();
 }

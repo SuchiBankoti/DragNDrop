@@ -8,7 +8,7 @@
 }
 #container {
   width: 350px;
-  height: 700px;
+  height: 550px;
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(18, 100px);
@@ -32,9 +32,20 @@ img {
   background-color: transparent;
   position: relative;
 }
+.item-container {
+  width: 300px;
+  height: 75px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
 #dropzone {
   width: 630px;
-  height: 680px;
+  height: 550px;
+  border: 1px solid grey;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(9, 1fr);
@@ -44,13 +55,11 @@ img {
 }
 #dropContainer {
   width: 650px;
-  height: 700px;
-  border: 1px solid grey;
+  height: 650px;
   padding: 2px;
   margin-left: 50px;
 }
 #dropIcon {
-  margin: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,11 +67,7 @@ img {
   width: 500px;
   height: 200px;
 }
-.move {
-  bottom: -10px;
-  left: 50px;
-  background-color: white;
-}
+
 #msgbox {
   position: fixed;
   display: none;
@@ -77,5 +82,13 @@ img {
   text-align: center;
   padding-top: 30px;
   font-family: "Courier New", Courier, monospace;
+  border-radius: 5px;
+}
+button {
+  background-color: rgb(30, 98, 181);
+  color: white;
+  width: 200px;
+  height: 35px;
+  margin: 5px;
   border-radius: 5px;
 }
