@@ -67,29 +67,26 @@ function allow_drop(e) {
 }
 function on_dragStart(e) {
   e.dataTransfer.setData("text", e.target.id);
-  e.target.style.background = "white";
+  e.target.style.backgroundColor = "white";
 }
 function on_drag(e) {
   e.preventDefault();
   if (e.dataTransfer.types.includes("text")) {
-    e.target.style.background = "white";
+    e.target.style.backgroundColor = "white";
   } else {
-    e.target.style.background = "grey";
+    e.target.style.backgroundColor = "grey";
   }
 }
 function on_dragEnd(e) {
-  e.target.style.background = "transparent";
+  e.target.style.backgroundColor = "transparent";
 }
 function on_drop(e) {
   e.preventDefault();
   let data = e.dataTransfer.getData("text");
-  const itemContainer = document.createElement("div");
-  itemContainer.className = "item-container";
   const draggedTag = document.getElementById(data);
-  draggedTag.style.height = "70px";
   draggedTag.style.border = "0";
-  itemContainer.appendChild(draggedTag);
-  e.target.appendChild(itemContainer);
+  draggedTag.style.cursor = "not-allowed";
+  dropzone.appendChild(draggedTag);
   addMsg();
   setTimeout(() => removeMsg(), 1000);
   removeDropIcon();

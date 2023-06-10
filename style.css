@@ -31,28 +31,15 @@ img {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  position: relative;
   cursor: grab;
 }
-.item-container {
-  width: 300px;
-  height: 75px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: black;
-  padding: 5px;
-}
+
 #dropzone {
   width: 630px;
   height: 550px;
   border: 1px solid grey;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(9, 1fr);
-  row-gap: 10px;
-  column-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
   padding: 2px;
 }
 #dropContainer {
@@ -81,8 +68,8 @@ img {
   width: 500px;
   height: 200px;
   background-color: black;
+  border-radius: 5px;
   color: white;
-  border: 5px solid black;
   text-align: center;
   padding-top: 30px;
   font-family: "Courier New", Courier, monospace;
@@ -99,7 +86,7 @@ button {
 .icon {
   width: 65px;
   height: 65px;
-  color: grey;
+  color: #055b5b;
   cursor: not-allowed;
 }
 .text {
