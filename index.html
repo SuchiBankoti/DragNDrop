@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>DragNDrop</h1>
+    <div id="main">
+      <!-- This is the container that holds all the draggable elements -->
+      <div id="container" class="box"></div>
+
+      <!-- This is the container that will take all the dropoffs -->
+      <div id="dropContainer">
+        <div
+          id="dropzone"
+          ondrop="on_drop(event)"
+          ondragover="allow_drop(event)"
+        ></div>
+        <div id="dropIcon">
+          <i data-feather="plus" class="icon"></i>
+          <h3>Drop Files Here</h3>
+          <p>Simply drag and drop the files from left side</p>
+        </div>
+        <button onclick="reset()">Reset</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace();
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
