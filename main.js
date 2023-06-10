@@ -1,6 +1,55 @@
+const data = [
+  {
+    tag: "i",
+    className: "icon",
+    icon: "heart",
+  },
+  {
+    tag: "i",
+    className: "icon",
+    icon: "bell-off",
+  },
+  {
+    tag: "i",
+    className: "icon",
+    icon: "alert-triangle",
+  },
+  {
+    tag: "img",
+    atNames: ["alt", "src"],
+    atValues: ["logo", "./items/i1.png"],
+  },
+  {
+    tag: "img",
+    atNames: ["alt", "src"],
+    atValues: ["logo", "./items/i2.png"],
+  },
+  {
+    tag: "img",
+    atNames: ["alt", "src"],
+    atValues: ["logo", "./items/i3.png"],
+  },
+  {
+    tag: "h2",
+    content: "Drag",
+    className: "text",
+  },
+  {
+    tag: "h2",
+    content: "And",
+    className: "text",
+  },
+  {
+    tag: "h2",
+    content: "Drop",
+    className: "text",
+  },
+];
+
 document.addEventListener("DOMContentLoaded", addItemsToContainer);
 const main = document.getElementById("main");
 const container = document.getElementById("container");
+const dropContainer = document.getElementById("dropContainer");
 const dropzone = document.getElementById("dropzone");
 const body = document.querySelector("body");
 
@@ -33,30 +82,45 @@ function on_dragEnd(e) {
 }
 function on_drop(e) {
   e.preventDefault();
-  removeDropIcon();
   let data = e.dataTransfer.getData("text");
   const itemContainer = document.createElement("div");
   itemContainer.className = "item-container";
   const draggedTag = document.getElementById(data);
   draggedTag.style.height = "70px";
+  draggedTag.style.border = "0";
   itemContainer.appendChild(draggedTag);
   e.target.appendChild(itemContainer);
   addMsg();
   setTimeout(() => removeMsg(), 1000);
+  removeDropIcon();
 }
 
 //  append items to container
 function addItemsToContainer() {
-  for (let i = 1; i <= 8; i++) {
+  data.forEach((obj, i) => {
     const div = document.createElement("div");
+    const tag = document.createElement(`${obj.tag}`);
+    if (obj.tag === "i") {
+      tag.setAttribute("data-feather", obj.icon);
+      tag.classList.add(obj.className);
+    } else if (obj.tag === "img") {
+      for (let j = 0; j < obj.atNames.length; j++) {
+        tag.setAttribute(`${obj.atNames[j]}`, `${obj.atValues[j]}`);
+      }
+    } else {
+      tag.classList.add(obj.className);
+      tag.textContent = `${obj.content}`;
+    }
     div.className = "item";
     div.draggable = true;
     div.id = `item${i}`;
     div.addEventListener("dragstart", on_dragStart);
     div.addEventListener("drag", on_drag);
     div.addEventListener("dragend", on_dragEnd);
+    div.appendChild(tag);
     container.appendChild(div);
-  }
+    feather.replace(); // Initialize the Feather Icons library
+  });
 }
 
 function addMsg() {
@@ -71,7 +135,7 @@ function removeMsg() {
 function removeDropIcon() {
   const icon = document.getElementById("dropIcon");
   if (icon) {
-    dropzone.removeChild(icon);
+    dropContainer.removeChild(icon);
   }
 }
 function reset() {
